@@ -3,7 +3,7 @@ import './assets/scss/app.scss'
 function App() {
 
     return (
-        <>
+        <div className="App">
             <header>
                 <h1>Password Generator</h1>
             </header>
@@ -47,7 +47,7 @@ function App() {
                     </form>
                 </div>
             </main>
-        </>
+        </div>
     )
 }
 
