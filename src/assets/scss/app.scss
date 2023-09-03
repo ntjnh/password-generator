@@ -1,7 +1,19 @@
 @import "./font";
 
-body {
-    font-family: 'Roboto Mono', monospace;
+$black: #121117; // main bg
+$black-2: #18171f; // "Strength" bg, range bg
+$green: #a2f7ae; // btn, character num, copy icon
+$grey: #878495; // Title, "Strength"
+$grey-dark: #58575f; // Generated password
+$grey-light: #e6e5ea; // font colour
+$grey-v-dark: #24232b; // form bg
+
+* {
+    box-sizing: border-box;
 }
 
-
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+}
