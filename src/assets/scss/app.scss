@@ -1,4 +1,5 @@
 @import "./font";
+$body-font: 'JetBrains Mono', monospace;
 
 $black: #121117; // main bg
 $black-2: #18171f; // "Strength" bg, range bg
@@ -13,7 +14,8 @@ $grey-v-dark: #24232b; // form bg
 }
 
 body {
-    font-family: 'Roboto Mono', monospace;
+    background-color: $black;
+    font-family: $body-font;
     margin: 0;
     padding: 0;
 }
