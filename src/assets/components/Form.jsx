@@ -1,16 +1,49 @@
 import { useState } from 'react'
+import characters from '../../characters'
 
 export default function Form() {
 
-    const [strength, setStrength] = useState('Medium')
+    const [strength, setStrength] = useState('Very Strong')
     const [length, setLength] = useState(24)
+    const [password, setPassword] = useState('')
+
+    let letters = characters.letters
+    let numbers= characters.numbers
+    let symbols= characters.symbols
+
+    const getCharacter = arr => arr[Math.floor(Math.random() * arr.length)]
+
+    const createPassword = passwordLength => {
+        let passwordCharacters = []
+
+        for (let i = 0; i < passwordLength; i++) {
+            passwordCharacters.push(getCharacter(letters))
+        }
+
+        return passwordCharacters
+    }
 
     function handleChange(e) {
         setLength(e.target.value)
+
+        if (length < 6) {
+            setStrength('weak')
+        } else if (length < 12) {
+            setStrength('medium')
+        } else if (length >=12) {
+            setStrength('strong')
+        }
     }
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        setPassword(createPassword(length).join(""))
+    }
+
+    // console.log(password)   
+
     return (
-        <form>
+        <form method="post" onSubmit={handleSubmit}>
             <div className="length">
                 <label className="length__label" htmlFor="length">Character Length</label>
                 <input className="length__input" type="range" name="length" id="length" min={0} max={24} step={1} onChange={handleChange} />
@@ -40,13 +73,13 @@ export default function Form() {
             <div className="strength">
                 <h3 className="strength__title">Strength</h3>
 
-                <div>
+                <div className="strength__status">
                     <span className="strength__label">{strength}</span>
                     <div className="strength-meter">
-                        <span className="strength-meter__bar"></span>
-                        <span className="strength-meter__bar"></span>
-                        <span className="strength-meter__bar"></span>
-                        <span className="strength-meter__bar"></span>
+                        <span className={`strength-meter__bar ${strength}`}></span>
+                        <span className={`strength-meter__bar ${strength}`}></span>
+                        <span className={`strength-meter__bar ${strength}`}></span>
+                        <span className={`strength-meter__bar ${strength}`}></span>
                     </div>
                 </div>
             </div>
