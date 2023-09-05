@@ -3,7 +3,7 @@ import characters from '../../characters'
 
 export default function Form() {
 
-    const [strength, setStrength] = useState('Very Strong')
+    const [strength, setStrength] = useState('Strong')
     const [length, setLength] = useState(24)
     const [password, setPassword] = useState('')
 
@@ -27,6 +27,8 @@ export default function Form() {
         setLength(e.target.value)
 
         if (length < 6) {
+            setStrength('very weak')
+        } else if (length < 8) {
             setStrength('weak')
         } else if (length < 12) {
             setStrength('medium')
@@ -38,9 +40,8 @@ export default function Form() {
     function handleSubmit(e) {
         e.preventDefault()
         setPassword(createPassword(length).join(""))
+        console.log(password)
     }
-
-    // console.log(password)   
 
     return (
         <form method="post" onSubmit={handleSubmit}>
@@ -75,11 +76,12 @@ export default function Form() {
 
                 <div className="strength__status">
                     <span className="strength__label">{strength}</span>
+
                     <div className="strength-meter">
-                        <span className={`strength-meter__bar ${strength}`}></span>
-                        <span className={`strength-meter__bar ${strength}`}></span>
-                        <span className={`strength-meter__bar ${strength}`}></span>
-                        <span className={`strength-meter__bar ${strength}`}></span>
+                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
+                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
+                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
+                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
                     </div>
                 </div>
             </div>

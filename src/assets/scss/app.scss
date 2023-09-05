@@ -169,6 +169,13 @@ body {
                         }
 
                         &.weak {
+                            &:nth-child(-n + 2) {
+                                background-color: orange;
+                                border-color: orange;
+                            }
+                        }
+
+                        &.very-weak {
                             &:first-child {
                                 background-color: #cf2727;
                                 border-color: #cf2727;
