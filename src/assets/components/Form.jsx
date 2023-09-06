@@ -1,54 +1,12 @@
-import { useState } from 'react'
-import characters from '../../characters'
-
-export default function Form() {
-
-    const [strength, setStrength] = useState('Strong')
-    const [length, setLength] = useState(24)
-    const [password, setPassword] = useState('')
-
-    let letters = characters.letters
-    let numbers= characters.numbers
-    let symbols= characters.symbols
-
-    const getCharacter = arr => arr[Math.floor(Math.random() * arr.length)]
-
-    const createPassword = passwordLength => {
-        let passwordCharacters = []
-
-        for (let i = 0; i < passwordLength; i++) {
-            passwordCharacters.push(getCharacter(letters))
-        }
-
-        return passwordCharacters
-    }
-
-    function handleChange(e) {
-        setLength(e.target.value)
-
-        if (length < 6) {
-            setStrength('very weak')
-        } else if (length < 8) {
-            setStrength('weak')
-        } else if (length < 12) {
-            setStrength('medium')
-        } else if (length >=12) {
-            setStrength('strong')
-        }
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        setPassword(createPassword(length).join(""))
-        console.log(password)
-    }
+export default function Form(props) {
+    const strength = props.strength
 
     return (
-        <form method="post" onSubmit={handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <div className="length">
                 <label className="length__label" htmlFor="length">Character Length</label>
-                <input className="length__input" type="range" name="length" id="length" min={0} max={24} step={1} onChange={handleChange} />
-                <span className="length__value">{length}</span>
+                <input className="length__input" type="range" name="length" id="length" min={0} max={24} step={1} onChange={props.handleChange} value={props.length} />
+                <span className="length__value">{props.length}</span>
             </div>
 
             <div className="checkbox-field uppercase">
