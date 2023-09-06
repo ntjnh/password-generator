@@ -10,23 +10,23 @@ export default function Form(props) {
             </div>
 
             <div className="checkbox-field uppercase">
-                <input className="uppercase__input" type="checkbox" id="uppercase" name="characters" />
-                <label className="uppercase__label" htmlFor="uppercase">Include Uppercase Letters</label>
+                <input className="checkbox-field__input" type="checkbox" id="uppercase" name="characters" />
+                <label className="checkbox-field__label" htmlFor="uppercase">Include Uppercase Letters</label>
             </div>
 
             <div className="checkbox-field lowercase">
-                <input className="lowercase__input" type="checkbox" id="lowercase" name="characters" />
-                <label className="lowercase__label" htmlFor="lowercase">Include Lowercase Letters</label>
+                <input className="checkbox-field__input" type="checkbox" id="lowercase" name="characters" />
+                <label className="checkbox-field__label" htmlFor="lowercase">Include Lowercase Letters</label>
             </div>
 
             <div className="checkbox-field numbers">
-                <input className="numbers__input" type="checkbox" id="numbers" name="characters" />
-                <label className="numbers__label" htmlFor="numbers">Include Numbers</label>
+                <input className="checkbox-field__input" type="checkbox" id="numbers" name="characters" />
+                <label className="checkbox-field__label" htmlFor="numbers">Include Numbers</label>
             </div>
 
             <div className="checkbox-field symbols">
-                <input className="symbols__input" type="checkbox" id="symbols" name="characters" />
-                <label className="symbols__label" htmlFor="symbols">Include Symbols</label>
+                <input className="checkbox-field__input" type="checkbox" id="symbols" name="characters" />
+                <label className="checkbox-field__label" htmlFor="symbols">Include Symbols</label>
             </div>
 
             <div className="strength">

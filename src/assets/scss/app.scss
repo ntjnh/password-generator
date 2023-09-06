@@ -57,6 +57,7 @@ body {
                 background-color: transparent;
                 border: none;
                 border-radius: 0;
+                cursor: pointer;
                 position: absolute;
                 right: 2rem;
                 top: 0;
@@ -82,7 +83,12 @@ body {
             .checkbox-field {
                 margin-bottom: 1.375rem;
 
-                label {
+                &__input,
+                &__label {
+                    cursor: pointer;
+                }
+
+                &__label {
                     display: inline-block;
                     font-size: 17px;
                     margin-left: 1.25rem;
@@ -101,6 +107,7 @@ body {
                 }
 
                 &__input {
+                    cursor: pointer;
                     display: inline-block;
                     width: 100%;
                 }
@@ -187,15 +194,22 @@ body {
 
             .generate {
                 background-color: $green;
-                border: none;
+                border: 2px solid $green;
                 color: $black;
+                cursor: pointer;
                 display: inline-block;
                 font-size: 1.125rem;
                 font-weight: 500;
                 line-height: 1;
                 padding: 1.25rem;
                 text-transform: uppercase;
+                transition: all .25s ease-in-out;
                 width: 100%;
+
+                &:hover {
+                    background-color: transparent;
+                    color: $green;
+                }
             }
         }
     }
