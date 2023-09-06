@@ -17,3 +17,10 @@ Your users should be able to:
 - See a strength rating for their generated password
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
+
+## learnt
+- how to pass state and event handlers as props to child components
+
+## links
+- https://react.dev/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form
+- https://react.dev/learn/sharing-state-between-components
