@@ -1,0 +1,32 @@
+@import "../scss/font";
+$body-font: 'JetBrains Mono', monospace;
+
+$green: #a2f7ae;
+$grey-v-dark: #24232b; // form bg
+$white: #fff;
+
+.attribution {
+    background-color: $grey-v-dark;
+    bottom: 1.5rem;
+    color: $white;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    right: 1.5rem;
+    position: fixed;
+    text-align: center;
+    
+    & > div {
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    
+    a {
+        color: $green;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
