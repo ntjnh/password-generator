@@ -3,6 +3,7 @@ import Form from './assets/components/Form'
 import './assets/scss/app.scss'
 import characters from './characters'
 import Password from './assets/components/Password'
+import Attr from './assets/components/Attr'
 
 function App() {
     const [password, setPassword] = useState('P4$5W0rD!')
@@ -59,6 +60,8 @@ function App() {
                     strength={strength} 
                 />
             </main>
+
+            <Attr />
         </div>
     )
 }
