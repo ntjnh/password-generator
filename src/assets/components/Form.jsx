@@ -1,5 +1,14 @@
 export default function Form(props) {
     const strength = props.strength
+    const strengthClass = strength.replace(' ', '-')
+
+    const strengthBars = []
+
+    for (let i = 0; i < 4; i++) {
+        strengthBars.push((
+            <span key={i} className={`strength-meter__bar ${strengthClass}`}></span>
+        ))
+    }
 
     return (
         <form onSubmit={props.handleSubmit}>
@@ -36,10 +45,7 @@ export default function Form(props) {
                     <span className="strength__label">{strength}</span>
 
                     <div className="strength-meter">
-                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
-                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
-                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
-                        <span className={`strength-meter__bar ${strength.replace(' ', '-')}`}></span>
+                        {strengthBars}
                     </div>
                 </div>
             </div>
