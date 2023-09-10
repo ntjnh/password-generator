@@ -19,22 +19,22 @@ export default function Form(props) {
             </div>
 
             <div className="checkbox-field uppercase">
-                <input className="checkbox-field__input" type="checkbox" id="uppercase" name="characters" />
+                <input className="checkbox-field__input" type="checkbox" id="uppercase" name="uppercase" />
                 <label className="checkbox-field__label" htmlFor="uppercase">Include Uppercase Letters</label>
             </div>
 
             <div className="checkbox-field lowercase">
-                <input className="checkbox-field__input" type="checkbox" id="lowercase" name="characters" />
+                <input className="checkbox-field__input" type="checkbox" id="lowercase" name="lowercase" />
                 <label className="checkbox-field__label" htmlFor="lowercase">Include Lowercase Letters</label>
             </div>
 
             <div className="checkbox-field numbers">
-                <input className="checkbox-field__input" type="checkbox" id="numbers" name="characters" />
+                <input className="checkbox-field__input" type="checkbox" id="numbers" name="numbers" />
                 <label className="checkbox-field__label" htmlFor="numbers">Include Numbers</label>
             </div>
 
             <div className="checkbox-field symbols">
-                <input className="checkbox-field__input" type="checkbox" id="symbols" name="characters" />
+                <input className="checkbox-field__input" type="checkbox" id="symbols" name="symbols" />
                 <label className="checkbox-field__label" htmlFor="symbols">Include Symbols</label>
             </div>
 
