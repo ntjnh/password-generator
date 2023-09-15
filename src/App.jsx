@@ -9,68 +9,40 @@ function App() {
     const [password, setPassword] = useState('P4$5W0rD!')
     const [strength, setStrength] = useState('')
     const [length, setLength] = useState(0)
-    const [distribution, setDistribution] = useState({})
 
     // Generate password
     const createPassword = (passwordLength, typesArr) => {
+
         // Get a random character from the array of its type
         const getCharacter = arr => arr[Math.floor(Math.random() * arr.length)]
 
         // Gather all the characters that will make up the password
-        let passwordCharacters = []
+        const passwordCharacters = []
 
-        // Keep track of number of characters for each type
-        const charSpread = {}
+        // Array to hold the pool of available characters based on chosen types
+        const availableCharacters = []
 
-        typesArr.forEach(type => {
-            charSpread[type] = 0
+        // Loop through the selected types
+        typesArr.forEach(t => {
+
+            // Add all characters to the available characters array
+            characters[t].forEach(char => availableCharacters.push(char))
+            
+            // get a character from each type to make sure we have at least one of each
+            passwordCharacters.push(getCharacter(characters[t]))
         })
 
-        // Loop to get each character until password length is reached
-        for (let a = 0; a < passwordLength; a++) {
 
-            // Get a random type
-            const randomType = typesArr[Math.floor(Math.random() * typesArr.length)]
+        // How many more characters are needed
+        const remainingCharacters = passwordLength - typesArr.length
 
-            // Add to character count for this type
-            charSpread[randomType]++
-
-            const char = getCharacter(characters[randomType])
-            passwordCharacters.push(char)
-
+        // Loop to grab the remaining characters based on number above
+        for (let x = 0; x < remainingCharacters; x++) {
+            passwordCharacters.push(getCharacter(availableCharacters))
         }
 
-        setDistribution(charSpread)
-        return passwordCharacters
-    }
-
-    function getPassword(length, types) {
-        const characters = length
-        const characterTypes = types
-
-        let generatedPassword = createPassword(characters, characterTypes)
-        
-        if (types.length > 1) {
-            if (checkPassword()) {
-                setPasswordGrade(checkPassword())
-                return generatedPassword.join("")
-            } else {
-                console.log(`Password failed`)
-            }
-        } else {
-            return generatedPassword
-        }
-    }
-
-    // Check password array to make sure it includes all character types
-    function checkPassword() {
-        for (const typeProp in distribution) {
-            if (distribution[typeProp] < 1) {
-                return false
-            }
-        }
-
-        return true
+        // Return merged array as a string
+        return passwordCharacters.join("")
     }
 
     // Event handler functions
@@ -98,7 +70,7 @@ function App() {
 
         types.forEach(type => formData.has(type) && selectedTypes.push(type))
 
-        setPassword(getPassword(length, selectedTypes))
+        setPassword(createPassword(length, selectedTypes))
     }
 
     return (
