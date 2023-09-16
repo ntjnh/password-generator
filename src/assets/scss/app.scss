@@ -109,9 +109,65 @@ body {
                 }
 
                 &__input {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    background-color: $black-2;
                     cursor: pointer;
                     display: inline-block;
+                    height: 6px;
                     width: 100%;
+
+                    // &:hover {
+                    //     background-color: $green;
+                    // }
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        height: 28px;
+                        width: 28px;
+                        border-radius: 50%;
+                        background: $grey-light;
+                        cursor: pointer;
+                        margin-top: -4px;
+
+                        &:hover {
+                            background: $black-2;
+                            border: 2px solid $green;
+                        }
+                    }
+
+                    &::-moz-range-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        height: 28px;
+                        width: 28px;
+                        border-radius: 50%;
+                        background: $grey-light;
+                        cursor: pointer;
+                        margin-top: -4px;
+
+                        &:hover {
+                            background: $black-2;
+                            border: 2px solid $green;
+                        }
+                    }
+
+                    &::-ms-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        height: 28px;
+                        width: 28px;
+                        border-radius: 50%;
+                        background: $grey-light;
+                        cursor: pointer;
+                        margin-top: -4px;
+
+                        &:hover {
+                            background: $black-2;
+                            border: 2px solid $green;
+                        }
+                    }
                 }
 
                 &__value {
