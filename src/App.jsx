@@ -32,7 +32,6 @@ function App() {
             passwordCharacters.push(getCharacter(characters[t]))
         })
 
-
         // How many more characters are needed
         const remainingCharacters = passwordLength - typesArr.length
 
