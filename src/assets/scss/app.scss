@@ -69,9 +69,19 @@ body {
                 top: 0;
                 transform: translateY(80%);
 
-                img {
+                &:hover {
+                    svg path {
+                        fill: $grey-light;
+                    }
+                }
+
+                svg {
                     display: inline-block;
                     width: 1.5rem;
+
+                    path {
+                        fill: $green;
+                    }
                 }
             }
         }
