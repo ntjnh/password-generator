@@ -9,7 +9,7 @@ function App() {
     const [password, setPassword] = useState('P4$5W0rD!')
     const [strength, setStrength] = useState('')
     const [length, setLength] = useState(0)
-    const [trackLeftWidth, setTrackLeftWidth] = useState('4.16666667%')
+    const [trackLeftWidth, setTrackLeftWidth] = useState('0%')
 
     // Generate password
     const createPassword = (passwordLength, typesArr) => {
