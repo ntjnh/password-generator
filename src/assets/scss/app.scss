@@ -108,6 +108,15 @@ body {
                     margin-bottom: 1.5rem;
                 }
 
+                &__input-track-left {
+                    background-color: $green;
+                    bottom: 5px;
+                    display: inline-block;
+                    height: 6px;
+                    left: 3px;
+                    position: absolute;
+                }
+
                 &__input {
                     -webkit-appearance: none;
                     appearance: none;
@@ -117,10 +126,6 @@ body {
                     height: 6px;
                     width: 100%;
 
-                    // &:hover {
-                    //     background-color: $green;
-                    // }
-
                     &::-webkit-slider-thumb {
                         -webkit-appearance: none;
                         appearance: none;
@@ -129,7 +134,10 @@ body {
                         border-radius: 50%;
                         background: $grey-light;
                         cursor: pointer;
-                        margin-top: -4px;
+                        margin-top: 0;
+                        position: relative;
+                        right: -2px;
+                        z-index: 1;
 
                         &:hover {
                             background: $black-2;
@@ -145,7 +153,10 @@ body {
                         border-radius: 50%;
                         background: $grey-light;
                         cursor: pointer;
-                        margin-top: -4px;
+                        margin-top: 0;
+                        position: relative;
+                        right: -2px;
+                        z-index: 1;
 
                         &:hover {
                             background: $black-2;
@@ -161,7 +172,10 @@ body {
                         border-radius: 50%;
                         background: $grey-light;
                         cursor: pointer;
-                        margin-top: -4px;
+                        margin-top: 0;
+                        position: relative;
+                        right: -2px;
+                        z-index: 1;
 
                         &:hover {
                             background: $black-2;

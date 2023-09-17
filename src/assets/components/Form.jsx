@@ -15,6 +15,7 @@ export default function Form(props) {
             <div className="length">
                 <label className="length__label" htmlFor="length">Character Length</label>
                 <input className="length__input" type="range" name="length" id="length" min={0} max={24} step={1} onChange={props.handleChange} value={props.length} />
+                <span className="length__input-track-left" style={{"width": props.trackLeftWidth}}></span>
                 <span className="length__value">{props.length}</span>
             </div>
 

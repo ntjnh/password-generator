@@ -9,6 +9,7 @@ function App() {
     const [password, setPassword] = useState('P4$5W0rD!')
     const [strength, setStrength] = useState('')
     const [length, setLength] = useState(0)
+    const [trackLeftWidth, setTrackLeftWidth] = useState('4.16666667%')
 
     // Generate password
     const createPassword = (passwordLength, typesArr) => {
@@ -57,6 +58,8 @@ function App() {
         } else if (length >=12) {
             setStrength('strong')
         }
+
+        setTrackLeftWidth(`${Math.ceil(e.target.value / 24 * 100)}%`)
     }
 
     function handleSubmit(e) {
@@ -83,7 +86,8 @@ function App() {
                     handleChange={handleChange} 
                     handleSubmit={handleSubmit} 
                     length={length}
-                    strength={strength} 
+                    strength={strength}
+                    trackLeftWidth={trackLeftWidth}
                 />
             </main>
 
