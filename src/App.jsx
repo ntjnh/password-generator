@@ -10,6 +10,7 @@ function App() {
     const [strength, setStrength] = useState('')
     const [length, setLength] = useState(0)
     const [trackLeftWidth, setTrackLeftWidth] = useState('0%')
+    const [isHighlighted, setIsHighlighted] = useState(false)
 
     // Generate password
     const createPassword = (passwordLength, typesArr) => {
@@ -73,6 +74,7 @@ function App() {
         types.forEach(type => formData.has(type) && selectedTypes.push(type))
 
         setPassword(createPassword(length, selectedTypes))
+        setIsHighlighted(true)
     }
 
     return (
@@ -80,7 +82,7 @@ function App() {
             <main>
                 <h1>Password Generator</h1>
 
-                <Password password={password} />
+                <Password highlight={isHighlighted} password={password} />
 
                 <Form 
                     handleChange={handleChange} 

@@ -12,9 +12,11 @@ export default function Password(props) {
         )
     }
 
+    const highlight = props.highlight ? ' password__text--grey' : ''
+
     return (
         <div className="password">
-            <h2 className="password__text">{props.password}</h2>
+            <h2 className={`password__text${highlight}`}>{props.password}</h2>
 
             <button className="password__copy" onClick={handleClick}>
                 <img src={copyIcon} alt="Copy password" />
