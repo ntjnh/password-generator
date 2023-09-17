@@ -50,8 +50,11 @@ export default function Form(props) {
                     </div>
                 </div>
             </div>
+            <button className="generate" type="submit">
+                Generate
+                <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><polygon fillRule="evenodd" points="10.586 9 2 9 2 7 10.586 7 7.293 3.707 8.707 2.293 14.414 8 8.707 13.707 7.293 12.293 10.586 9"/></svg>
+            </button>
 
-            <button className="generate" type="submit">Generate</button>
         </form>
     )
 }

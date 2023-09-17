@@ -281,6 +281,21 @@ body {
                 &:hover {
                     background-color: transparent;
                     color: $green;
+
+                    svg polygon {
+                        fill: $green;
+                    }
+                }
+
+                svg {
+                    display: inline-block;
+                    height: auto;
+                    margin: 0 0 -2px 1.75rem;
+                    width: 18px;
+
+                    polygon {
+                        transition: all .25s ease-in-out;
+                    }
                 }
             }
         }
