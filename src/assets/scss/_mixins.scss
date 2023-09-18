@@ -24,3 +24,10 @@
     background-color: $colour;
     border-color: $colour;
 }
+
+// Flex container
+@mixin flex($justify: space-between) {
+    align-items: center;
+    display: flex;
+    justify-content: $justify;
+}

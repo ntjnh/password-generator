@@ -23,17 +23,15 @@ body {
 }
 
 .App {
-    align-items: center;
+    @include flex(center);
+    background-color: $black;
     color: $grey;
-    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     min-height: 100vh;
     position: relative;
     width: 100vw;
 
     main {
-        background-color: $black;
         max-width: 540px;
         width: 100%;
         
@@ -187,11 +185,8 @@ body {
             }
 
             .strength {
-                align-items: center;
+                @include flex;
                 background-color: $black-2;
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: space-between;
                 line-height: 1;
                 margin: 2rem 0;
                 padding: 1.75rem 2rem;
@@ -205,9 +200,7 @@ body {
                 }
 
                 &__status {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
+                    @include flex;
                 }
 
                 &__label {
