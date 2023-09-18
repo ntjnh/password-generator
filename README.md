@@ -95,6 +95,7 @@ The initial build is done but there are still various bugs I need to squash. The
 - [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components) - I found this useful in figuring out how to access a state variable from two  sibling components.
 - [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) - Reading through this helped me to understand how the clipboard works and how I could use the API to read or write data to a user's clipboard.
 - [Clipboard: writeText() method](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) - This helped me to add text to a user's clipboard.
+- [LastPass Password Generator](https://www.lastpass.com/features/password-generator) - I used this password generator for a bit of functionality inspiration
 
 ## Author
 
