@@ -1,3 +1,5 @@
+@import './mixins';
+
 $body-font: 'JetBrains Mono', monospace;
 
 $black: #121117; // main bg
@@ -7,13 +9,14 @@ $grey: #878495; // Title, "Strength"
 $grey-dark: #58575f; // Generated password
 $grey-light: #e6e5ea; // font colour
 $grey-v-dark: #24232b; // form bg
+$orange: #f6cd69;
+$red: #dd4c4c;
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    background-color: $black;
     font-family: $body-font;
     margin: 0;
     padding: 0;
@@ -30,6 +33,7 @@ body {
     width: 100vw;
 
     main {
+        background-color: $black;
         max-width: 540px;
         width: 100%;
         
@@ -106,7 +110,6 @@ body {
                 }
 
                 &__input {
-                    -webkit-appearance: none;
                     appearance: none;
                     border: 2px solid $grey-light;
                     height: 22px;
@@ -151,7 +154,6 @@ body {
                 }
 
                 &__input {
-                    -webkit-appearance: none;
                     appearance: none;
                     background-color: $black-2;
                     cursor: pointer;
@@ -161,60 +163,15 @@ body {
                     width: 100%;
 
                     &::-webkit-slider-thumb {
-                        -webkit-appearance: none;
-                        appearance: none;
-                        height: 28px;
-                        width: 28px;
-                        border-radius: 50%;
-                        background: $grey-light;
-                        cursor: pointer;
-                        margin-top: 0;
-                        position: relative;
-                        right: -1px;
-                        z-index: 1;
-
-                        &:hover {
-                            background: $black-2;
-                            border: 2px solid $green;
-                        }
+                        @include range-thumb;
                     }
 
                     &::-moz-range-thumb {
-                        -webkit-appearance: none;
-                        appearance: none;
-                        height: 28px;
-                        width: 28px;
-                        border-radius: 50%;
-                        background: $grey-light;
-                        cursor: pointer;
-                        margin-top: 0;
-                        position: relative;
-                        right: -1px;
-                        z-index: 1;
-
-                        &:hover {
-                            background: $black-2;
-                            border: 2px solid $green;
-                        }
+                        @include range-thumb;
                     }
 
                     &::-ms-thumb {
-                        -webkit-appearance: none;
-                        appearance: none;
-                        height: 28px;
-                        width: 28px;
-                        border-radius: 50%;
-                        background: $grey-light;
-                        cursor: pointer;
-                        margin-top: 0;
-                        position: relative;
-                        right: -1px;
-                        z-index: 1;
-
-                        &:hover {
-                            background: $black-2;
-                            border: 2px solid $green;
-                        }
+                        @include range-thumb;
                     }
                 }
 
@@ -270,28 +227,24 @@ body {
                         width: 9px;
 
                         &.strong {
-                            background-color: limegreen;
-                            border-color: limegreen;
+                            @include strength-meter-colour(limegreen);
                         }
 
                         &.medium {
                             &:nth-child(-n + 3) {
-                                background-color: orange;
-                                border-color: orange;
+                                @include strength-meter-colour($orange);
                             }
                         }
 
                         &.weak {
                             &:nth-child(-n + 2) {
-                                background-color: orange;
-                                border-color: orange;
+                                @include strength-meter-colour($orange);
                             }
                         }
 
                         &.very-weak {
                             &:first-child {
-                                background-color: #cf2727;
-                                border-color: #cf2727;
+                                @include strength-meter-colour($red);
                             }
                         }
                     }

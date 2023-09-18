@@ -1,0 +1,26 @@
+
+
+// Input range thumb styles
+@mixin range-thumb {
+    appearance: none;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background: $grey-light;
+    cursor: pointer;
+    margin-top: 0;
+    position: relative;
+    right: -1px;
+    z-index: 1;
+
+    &:hover {
+        background: $black-2;
+        border: 2px solid $green;
+    }
+}
+
+// Strength meter colours
+@mixin strength-meter-colour($colour) {
+    background-color: $colour;
+    border-color: $colour;
+}
