@@ -1,12 +1,8 @@
 export default function Password(props) {
     function handleClick() {
         navigator.clipboard.writeText(props.password).then(
-            () => {
-                console.log('password copied')
-            },
-            e => {
-                console.log(e)
-            }
+            () => console.log('password copied'),
+            e => console.error(e)
         )
     }
 
