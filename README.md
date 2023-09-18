@@ -1,10 +1,23 @@
 # Password Generator
 
-This is a front end challenge that mostly follows the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh) but because it's a premium challenge, I don't have full access to everything I need to I've improvised!
+This is a front end challenge that mostly follows the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh) but because it's a premium challenge, I don't have full access to everything I need to I've improvised! Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Brief
+## Table of contents
 
-![Screenshot](./screenshot.jpg)
+- [Overview](#overview)
+  - [Brief](#brief)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learnt](#what-i-learnt)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+## Overview
+
+### Brief
 
 Your challenge is to build out this password generator app and get it looking as close to the design as possible.
 
@@ -18,130 +31,73 @@ Your users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-
-
-
-## learnt
-- how to pass state and event handlers as props to child components
-- how to add data to a user's clipboard
-
-## links
-- https://react.dev/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form
-- https://react.dev/learn/sharing-state-between-components
-- https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
-
-
-
-
-# Frontend Mentor - Job listings with filtering solution
-
-This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
-
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Filter job listings based on the categories
-
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Solution screenshot](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub repo](https://github.com/ntjnh/password-generator)
+- Live Site URL: [ntjnh-password-generator.netlify.app](https://ntjnh-password-generator.netlify.app)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
+- [React](https://reactjs.org/)
+- [SASS](https://sass-lang.com/)
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### What I learnt
 
-### What I learned
+This project has beena huge learning experience for me. I think I had about three different ways to generate passwords but the first two weren't quite right so it took a lot of thinking and scribbling of handwritten notes before I finally found a solid technique. The main issue at first was that the character selection was too random so there'd be instances where if you'd ticked lowercase letters, symbols and numbers, you could get a password that didn't have any numbers or any symbols and so on.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+The second version was just as insane. I don't think I even implemented it fully because I knew it was ridiculous. Something like looping `passwordLength` times then grabbing a character from each "pool" at a time. That wouldn't have been random enough. I would've always had equal amounts of characters for each type e.g. 8-character password with 2 uppercase letters, 2 lowercase letters, 2 symbols and 2 numbers.
 
-To see how you can add code snippets, see below:
+I eventually got there with attempt number 3. I loop through the array of selected character types and get a random character from each one to make sure I have at least one of each. Then I create an array of ALL the available characters and then get the remaining `password length minus number of selected character types` characters from random indexes in that array. Snippet below shows the implementation: 
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+// Loop through the selected character types
+typesArr.forEach(t => {
+
+    // Add all characters to the available characters array
+    characters[t].forEach(char => availableCharacters.push(char))
+    
+    // get a character from each type to make sure we have at least one of each
+    passwordCharacters.push(getCharacter(characters[t]))
+})
+
+// Calculate how many more characters are needed
+const remainingCharacters = passwordLength - typesArr.length
+
+// Loop to grab the remaining characters based on number above
+for (let x = 0; x < remainingCharacters; x++) {
+    passwordCharacters.push(getCharacter(availableCharacters))
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+I've learnt so much more about how to use state, event handlers and props with parent and child components. This was especially useful when I couldn't figure out how to update and access the state variable for the generated password from two separate components. The official React documentation has been really helpful to me for this project.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+I also gained some very useful knowledge about clipboard and how to read and write data to it. I've seen it out in the wild many times before but never thought about how it was implemented until now.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+The initial build is done but there are still various bugs I need to squash. These are mainly to do with form validation:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- [ ] At least one character type must be selected
+    - [ ] Checkbox borders should change to red until a box is checked
+- [ ] Password length needs to be more than or equal to 1 
+- [ ] It shouldn't be possible to select more character types than the length of the password
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Reading the input values when submitting a form](https://react.dev/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form) - This helped me when I needed to get the selected character types to then generate a password.
+- [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components) - I found this useful in figuring out how to access a state variable from two  sibling components.
+- [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) - Reading through this helped me to understand how the clipboard works and how I could use the API to read or write data to a user's clipboard.
+- [Clipboard: writeText() method](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) - This helped me to add text to a user's clipboard.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [Nate](https://natejonah.com)
+- Frontend Mentor - [@ntjnh](https://www.frontendmentor.io/profile/ntjnh)
+- Twitter - [@natejonah](https://www.twitter.com/natejonah)
