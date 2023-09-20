@@ -184,6 +184,20 @@ body {
                 }
             }
 
+            .error-message {
+                background-color: lighten($red, 25%);
+                color: darken($red, 25%);
+                display: none;
+                font-size: .875rem;
+                line-height: 1.125rem;
+                margin: 0 0 1.5rem;
+                padding: .5rem .75rem;
+
+                &--show {
+                    display: block;
+                }
+            }
+
             .strength {
                 @include flex;
                 background-color: $black-2;

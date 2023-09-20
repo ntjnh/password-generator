@@ -11,6 +11,7 @@ function App() {
     const [length, setLength] = useState(0)
     const [trackLeftWidth, setTrackLeftWidth] = useState('0%')
     const [isHighlighted, setIsHighlighted] = useState(false)
+    const [showErrorMessage, setShowErrorMessage] = useState(false)
 
     // Generate password
     const createPassword = (passwordLength, typesArr) => {
@@ -65,16 +66,26 @@ function App() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        const formData = new FormData(e.target)
 
-        const selectedTypes = []
+        const checkboxes = [e.target[1].checked, e.target[2].checked, e.target[3].checked, e.target[4].checked]
+        
+        if (checkboxes.some(checkbox => checkbox === true)) {
+            const formData = new FormData(e.target)
 
-        const types = Object.keys(characters)
+            const selectedTypes = []
 
-        types.forEach(type => formData.has(type) && selectedTypes.push(type))
+            const types = Object.keys(characters)
 
-        setPassword(createPassword(length, selectedTypes))
-        setIsHighlighted(true)
+            types.forEach(type => formData.has(type) && selectedTypes.push(type))
+
+            setPassword(createPassword(length, selectedTypes))
+
+            setIsHighlighted(true)
+
+            setShowErrorMessage(false)
+        } else {
+            setShowErrorMessage(prev => !prev)
+        }
     }
 
     return (
@@ -88,6 +99,7 @@ function App() {
                     handleChange={handleChange} 
                     handleSubmit={handleSubmit} 
                     length={length}
+                    showErrorMessage={showErrorMessage ? " error-message--show" : ""}
                     strength={strength}
                     trackLeftWidth={trackLeftWidth}
                 />

@@ -19,6 +19,8 @@ export default function Form(props) {
                 <span className="length__value">{props.length}</span>
             </div>
 
+            <p className={`error-message${props.showErrorMessage}`}>No character types selected. Please check 1 or more of the boxes below.</p>
+
             <div className="checkbox-field uppercase">
                 <input className="checkbox-field__input" type="checkbox" id="uppercase" name="uppercase" />
                 <label className="checkbox-field__label" htmlFor="uppercase">Include Uppercase Letters</label>
