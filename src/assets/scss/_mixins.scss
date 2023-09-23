@@ -3,8 +3,8 @@
 // Input range thumb styles
 @mixin range-thumb {
     appearance: none;
-    height: 28px;
-    width: 28px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
     background: $grey-light;
     cursor: pointer;
@@ -16,6 +16,11 @@
     &:hover {
         background: $black-2;
         border: 2px solid $green;
+    }
+
+    @media (min-width: 768px) {
+        height: 28px;
+        width: 28px;
     }
 }
 
