@@ -1,5 +1,7 @@
 # Password Generator
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/09305dc4-e1e2-4d1a-be61-05c4d6d25ca7/deploy-status)](https://app.netlify.com/sites/ntjnh-password-generator/deploys)
+
 This is a front end challenge that mostly follows the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh) but because it's a premium challenge, I don't have full access to everything I need to I've improvised! Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
