@@ -11,7 +11,8 @@ export default {
     extend: {
       colors: {
         green: {
-          250: '#a2f7ae' // btn, character num, copy icon
+          250: '#a2f7ae', // btn, character num, copy icon
+          450: '#32cd32'
         },
         neutral: {
           175: '#e6e5ea', // font colour

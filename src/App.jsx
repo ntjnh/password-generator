@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Form from './assets/components/Form'
 import './assets/css/app.css'
-import './assets/scss/app.scss'
 import characters from './characters'
 import Password from './assets/components/Password'
 import Attr from './assets/components/Attr'
