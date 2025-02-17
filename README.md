@@ -47,8 +47,9 @@ Your users should be able to:
 ### Built with
 
 - [React](https://reactjs.org/)
-- [SASS](https://sass-lang.com/)
+- [Tailwind CSS](https://v3.tailwindcss.com/)
 - Mobile-first workflow
+- Deployed to [Netlify](https://www.netlify.com/)
 
 ### What I learnt
 
@@ -90,6 +91,7 @@ The initial build is done but there are still various bugs I need to squash. The
     - [ ] Checkbox borders should change to red until a box is checked
 - [ ] Password length needs to be more than or equal to 1 
 - [ ] It shouldn't be possible to select more character types than the length of the password
+- [x] Remove all the custom SCSS code and use Tailwind CSS instead
 
 ### Useful resources
 
