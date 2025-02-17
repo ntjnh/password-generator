@@ -1,4 +1,6 @@
-
+$black-2: #18171f;
+$green: #a2f7ae;
+$grey-light: #e6e5ea;
 
 // Input range thumb styles
 @mixin range-thumb {
@@ -22,17 +24,4 @@
         height: 28px;
         width: 28px;
     }
-}
-
-// Strength meter colours
-@mixin strength-meter-colour($colour) {
-    background-color: $colour;
-    border-color: $colour;
-}
-
-// Flex container
-@mixin flex($justify: space-between) {
-    align-items: center;
-    display: flex;
-    justify-content: $justify;
 }
