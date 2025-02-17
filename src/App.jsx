@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Form from './assets/components/Form'
-import './assets/scss/app.scss'
+import './assets/css/app.css'
 import characters from './characters'
 import Password from './assets/components/Password'
 import Attr from './assets/components/Attr'
@@ -89,9 +89,9 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <main>
-                <h1>Password Generator</h1>
+        <div className="bg-neutral-925 md:flex md:flex-wrap md:items-center md:justify-center min-h-screen pb-[1.125rem] pt-10 px-[1.125rem] md:p-0 relative text-neutral-450 w-screen">
+            <main className="max-w-[540px] w-full">
+                <h1 className="font-normal leading-none mb-6 md:mb-9 mt-0 mx-0 text-center text-xl md:text-2xl">Password Generator</h1>
 
                 <Password highlight={isHighlighted} password={password} />
 
@@ -99,7 +99,7 @@ function App() {
                     handleChange={handleChange} 
                     handleSubmit={handleSubmit} 
                     length={length}
-                    showErrorMessage={showErrorMessage ? " error-message--show" : ""}
+                    showErrorMessage={showErrorMessage ? 'block' : 'hidden'}
                     strength={strength}
                     trackLeftWidth={trackLeftWidth}
                 />

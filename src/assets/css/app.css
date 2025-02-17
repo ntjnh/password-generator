@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply font-mono;
+    }
+
+    main {
+        .password__copy:hover {
+            svg path {
+                @apply fill-neutral-175;
+            }
+        }
+
+        form {
+            input[type=checkbox]:checked {
+                background-image: url('../images/check.svg');
+            }
+
+            .length__input::-webkit-slider-thumb {
+                @apply appearance-none h-8 md:h-7 w-8 md:w-7 rounded-full bg-neutral-175 cursor-pointer mt-0 relative -right-px z-10 hover:bg-neutral-875 hover:border-2 hover:border-green-250 hover:border-solid;
+            }
+
+            .length__input::-moz-range-thumb {
+                @apply appearance-none h-8 md:h-7 w-8 md:w-7 rounded-full bg-neutral-175 cursor-pointer mt-0 relative -right-px z-10 hover:bg-neutral-875 hover:border-2 hover:border-green-250 hover:border-solid;
+            }
+
+            .length__input::-ms-thumb {
+                @apply appearance-none h-8 md:h-7 w-8 md:w-7 rounded-full bg-neutral-175 cursor-pointer mt-0 relative -right-px z-10 hover:bg-neutral-875 hover:border-2 hover:border-green-250 hover:border-solid;
+            }
+
+            .strength .strength-meter__bar.strong {
+                @apply bg-green-450 border-green-450;
+            }
+
+            .strength .strength-meter__bar.medium:nth-child(-n + 3),
+            .strength .strength-meter__bar.weak:nth-child(-n + 2) {
+                @apply bg-orange-550 border-orange-550;
+            }
+
+            .strength .strength-meter__bar.very-weak:first-child {
+                @apply bg-red-575 border-red-575;
+            }
+
+            .generate:hover {
+                svg polygon {
+                    @apply fill-green-250;
+                }
+            }
+        }
+    }
+}
+
+
